@@ -1,35 +1,27 @@
 package com.wesleyreisz.rockpaperscissors;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-
-    public static final String CHOICE = "com.wesleyreisz.rockpaperscissors.choice";
+public class ResultsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_results);
+        Integer choice = getIntent().getIntExtra(MainActivity.CHOICE,R.id.btnPaper);
+        Log.d("Test", "This was clicked: " + choice);
 
-        ImageView rockImage = (ImageView)findViewById(R.id.btnRock);
-        rockImage.setOnClickListener(this);
-        ImageView paperImage = (ImageView)findViewById(R.id.btnPaper);
-        paperImage.setOnClickListener(this);
-        ImageView scissorsImage = (ImageView)findViewById(R.id.btnScissors);
-        scissorsImage.setOnClickListener(this);
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_results, menu);
         return true;
     }
 
@@ -46,13 +38,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v) {
-        Log.d("Test", "I was clicked");
-        Intent intent = new Intent(this,ResultsActivity.class);
-        intent.putExtra(CHOICE, v.getId());
-        startActivity(intent);
     }
 }
