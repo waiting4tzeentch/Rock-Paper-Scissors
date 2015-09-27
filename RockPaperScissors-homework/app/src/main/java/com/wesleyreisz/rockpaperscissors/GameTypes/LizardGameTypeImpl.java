@@ -15,22 +15,22 @@ public class LizardGameTypeImpl implements GameType {
             result.setWinner(R.id.btnScissors);
             result.setTextResult(GameUtils.DECAPITATES);
             result.setLoser(R.id.btnLizard);
-            result.setStatus(GameUtils.LOSES_TO);
+            result.setStatus(GameUtils.LOSES);
         }else if (opponentChoice==R.id.btnPaper){
             result.setWinner(R.id.btnLizard);
             result.setTextResult(GameUtils.EATS);
             result.setLoser(R.id.btnPaper);
-            result.setStatus(GameUtils.BEATS);
+            result.setStatus(GameUtils.WINS);
         }else if (opponentChoice==R.id.btnRock){
             result.setWinner(R.id.btnRock);
             result.setTextResult(GameUtils.CRUSHES);
             result.setLoser(R.id.btnLizard);
-            result.setStatus(GameUtils.LOSES_TO);
+            result.setStatus(GameUtils.LOSES);
         }else if (opponentChoice==R.id.btnSpock){
             result.setWinner(R.id.btnLizard);
             result.setTextResult(GameUtils.POISONS);
             result.setLoser(R.id.btnSpock);
-            result.setStatus(GameUtils.BEATS);
+            result.setStatus(GameUtils.WINS);
         }else{
             result.setWinner(R.id.btnLizard);
             result.setTextResult(GameUtils.TIES);

@@ -18,32 +18,63 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testScissors(){
         Integer player = R.id.btnScissors;
 
-        Assert.assertEquals(GameUtils.BEATS,GameUtils.evaluateWinner(player,R.id.btnPaper));
-        Assert.assertEquals(GameUtils.TIES,GameUtils.evaluateWinner(player, R.id.btnScissors));
-        Assert.assertEquals(GameUtils.LOSES_TO,GameUtils.evaluateWinner(player,R.id.btnRock));
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+        Assert.assertEquals(GameUtils.PUSH,GameUtils.evaluateWinner(player, R.id.btnScissors).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnRock).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnSpock).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnLizard).getStatus());
 
-        Assert.assertNotSame(GameUtils.TIES, GameUtils.evaluateWinner(player, R.id.btnPaper));
+        Assert.assertNotSame(GameUtils.PUSH, GameUtils.evaluateWinner(player, R.id.btnPaper).getStatus());
     }
 
 
     public void testRock(){
         Integer player = R.id.btnRock;
 
-        Assert.assertEquals(GameUtils.LOSES_TO,GameUtils.evaluateWinner(player,R.id.btnPaper));
-        Assert.assertEquals(GameUtils.BEATS,GameUtils.evaluateWinner(player, R.id.btnScissors));
-        Assert.assertEquals(GameUtils.TIES,GameUtils.evaluateWinner(player,R.id.btnRock));
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player, R.id.btnScissors).getStatus());
+        Assert.assertEquals(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnRock).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnSpock).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnLizard).getStatus());
 
-        Assert.assertNotSame(GameUtils.TIES,GameUtils.evaluateWinner(player,R.id.btnPaper));
+        Assert.assertNotSame(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
     }
 
     public void testPaper(){
         Integer player = R.id.btnPaper;
 
-        Assert.assertEquals(GameUtils.TIES,GameUtils.evaluateWinner(player,R.id.btnPaper));
-        Assert.assertEquals(GameUtils.LOSES_TO,GameUtils.evaluateWinner(player, R.id.btnScissors));
-        Assert.assertEquals(GameUtils.BEATS,GameUtils.evaluateWinner(player,R.id.btnRock));
+        Assert.assertEquals(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player, R.id.btnScissors).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnRock).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnSpock).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnLizard).getStatus());
 
-        Assert.assertNotSame(GameUtils.BEATS,GameUtils.evaluateWinner(player,R.id.btnPaper));
+        Assert.assertNotSame(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+    }
+
+    public void testSpock(){
+        Integer player = R.id.btnSpock;
+
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player, R.id.btnScissors).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnRock).getStatus());
+        Assert.assertEquals(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnSpock).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnLizard).getStatus());
+
+        Assert.assertNotSame(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+    }
+
+
+    public void testLizard(){
+        Integer player = R.id.btnLizard;
+
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player, R.id.btnScissors).getStatus());
+        Assert.assertEquals(GameUtils.LOSES,GameUtils.evaluateWinner(player,R.id.btnRock).getStatus());
+        Assert.assertEquals(GameUtils.WINS,GameUtils.evaluateWinner(player,R.id.btnSpock).getStatus());
+        Assert.assertEquals(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnLizard).getStatus());
+
+        Assert.assertNotSame(GameUtils.PUSH,GameUtils.evaluateWinner(player,R.id.btnPaper).getStatus());
     }
 
 }

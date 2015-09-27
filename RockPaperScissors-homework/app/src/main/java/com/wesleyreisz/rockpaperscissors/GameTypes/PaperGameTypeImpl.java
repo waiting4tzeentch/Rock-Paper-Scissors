@@ -16,22 +16,22 @@ public class PaperGameTypeImpl implements GameType {
             result.setWinner(R.id.btnPaper);
             result.setTextResult(GameUtils.COVERS);
             result.setLoser(R.id.btnRock);
-            result.setStatus(GameUtils.BEATS);
+            result.setStatus(GameUtils.WINS);
         }else if (opponentChoice==R.id.btnScissors){
             result.setWinner(R.id.btnScissors);
             result.setTextResult(GameUtils.CUTS);
             result.setLoser(R.id.btnPaper);
-            result.setStatus(GameUtils.LOSES_TO);
+            result.setStatus(GameUtils.LOSES);
         }else if (opponentChoice==R.id.btnSpock){
             result.setWinner(R.id.btnPaper);
             result.setTextResult(GameUtils.DISPROVES);
             result.setLoser(R.id.btnSpock);
-            result.setStatus(GameUtils.BEATS);
+            result.setStatus(GameUtils.WINS);
         }else if (opponentChoice==R.id.btnLizard){
             result.setWinner(R.id.btnLizard);
             result.setTextResult(GameUtils.EATS);
             result.setLoser(R.id.btnPaper);
-            result.setStatus(GameUtils.LOSES_TO);
+            result.setStatus(GameUtils.LOSES);
         }
         else{
             result.setWinner(R.id.btnPaper);

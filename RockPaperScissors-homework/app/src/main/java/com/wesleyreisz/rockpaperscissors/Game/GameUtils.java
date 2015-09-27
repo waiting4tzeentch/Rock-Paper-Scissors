@@ -16,8 +16,8 @@ import java.util.Random;
  * Created by wesleyreisz on 9/13/15.
  */
 public class GameUtils {
-    public static final String BEATS = "You Win!!!";
-    public static final String LOSES_TO = "You Lose!!!";
+    public static final String WINS = "You Win!!!";
+    public static final String LOSES = "You Lose!!!";
     public static final String PUSH = "It's a push. Go Again.";
     //----
     public static final String TIES = "ties";
@@ -78,9 +78,9 @@ public class GameUtils {
     }
 
     public static int defineTextColor(String msg) {
-        if(GameUtils.LOSES_TO.equalsIgnoreCase(msg)){
+        if(GameUtils.LOSES.equalsIgnoreCase(msg)){
             return Color.RED;
-        }else if(GameUtils.BEATS.equalsIgnoreCase(msg)){
+        }else if(GameUtils.WINS.equalsIgnoreCase(msg)){
             return Color.GREEN;
         }else{
             return Color.BLACK;
