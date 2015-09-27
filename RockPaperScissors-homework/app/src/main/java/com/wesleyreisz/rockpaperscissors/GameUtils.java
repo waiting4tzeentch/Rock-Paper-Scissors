@@ -1,12 +1,13 @@
 package com.wesleyreisz.rockpaperscissors;
 
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 
-import com.wesleyreisz.rockpaperscissors.Game.GameType;
-import com.wesleyreisz.rockpaperscissors.Game.Paper;
-import com.wesleyreisz.rockpaperscissors.Game.Rock;
-import com.wesleyreisz.rockpaperscissors.Game.Scissors;
+import com.wesleyreisz.rockpaperscissors.GameTypes.GameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.LizardGameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.PaperGameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.RockGameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.ScissorsGameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.SpockGameType;
 
 import java.util.Random;
 
@@ -14,9 +15,20 @@ import java.util.Random;
  * Created by wesleyreisz on 9/13/15.
  */
 public class GameUtils {
-    public static final String BEATS = "beats";
-    public static final String LOSES_TO = "loses to";
+    public static final String BEATS = "You Win!!!";
+    public static final String LOSES_TO = "You Lose!!!";
+    public static final String PUSH = "It's a push. Go Again.";
+    //----
     public static final String TIES = "ties";
+    public static final String CUTS = "cuts";
+    public static final String COVERS = "covers";
+    public static final String POISONS = "poisons";
+    public static final String SMASHES = "smashes";
+    public static final String EATS = "eats";
+    public static final String VAPORIZES = "vaporizes";
+    public static final String CRUSHES = "crushes";
+    public static final String DISPROVES = "disproves";
+    public static final String DECAPITATES = "decapitates";
 
     public static Integer getComputerChoice(){
         Integer selectedValue;
@@ -37,20 +49,29 @@ public class GameUtils {
             return R.drawable.rock;
         }else if (buttonChoice==R.id.btnPaper){
             return R.drawable.paper;
-        }else{
+        }else if (buttonChoice==R.id.btnLizard){
+            return R.drawable.lizard;
+        }else if (buttonChoice==R.id.btnSpock){
+            return R.drawable.spock;
+        }else {
             return R.drawable.scissors;
         }
     }
 
-    public static String evaluateWinner(Integer playerSelectedChoice, Integer computerSelectedChoice) {
+
+    public static GameResult evaluateWinner(Integer playerSelectedChoice, Integer computerSelectedChoice) {
         GameType gameType;
 
         if (playerSelectedChoice==R.id.btnRock){
-            gameType = new Rock();
+            gameType = new RockGameType();
         }else if  (playerSelectedChoice==R.id.btnPaper){
-            gameType = new Paper();
+            gameType = new PaperGameType();
+        }else if  (playerSelectedChoice==R.id.btnSpock){
+            gameType = new SpockGameType();
+        }else if  (playerSelectedChoice==R.id.btnLizard){
+            gameType = new LizardGameType();
         }else{
-            gameType = new Scissors();
+            gameType = new ScissorsGameType();
         }
         return gameType.eval(computerSelectedChoice);
     }
@@ -64,5 +85,6 @@ public class GameUtils {
             return Color.BLACK;
         }
     }
+
 }
 

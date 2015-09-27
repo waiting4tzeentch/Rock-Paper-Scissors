@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final String TAG = "Rock, Paper, Scissors";
+    private static final String TAG = "RockGameType, PaperGameType, ScissorsGameType";
     public static final String PLAYER_CHOICE = "com.wesleyreisz.rock_paper_scissors.player_choice";
 
     @Override
@@ -24,10 +24,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ImageButton rock = (ImageButton)findViewById(R.id.btnRock);
         rock.setOnClickListener(this);
-        ImageButton page = (ImageButton)findViewById(R.id.btnPaper);
-        page.setOnClickListener(this);
+        ImageButton paper = (ImageButton)findViewById(R.id.btnPaper);
+        paper.setOnClickListener(this);
         ImageButton scissors = (ImageButton)findViewById(R.id.btnScissors);
         scissors.setOnClickListener(this);
+
+        //added these images
+        ImageButton lizard = (ImageButton)findViewById(R.id.btnLizard);
+        lizard.setOnClickListener(this);
+        ImageButton spock = (ImageButton)findViewById(R.id.btnSpock);
+        spock.setOnClickListener(this);
+
     }
 
     @Override

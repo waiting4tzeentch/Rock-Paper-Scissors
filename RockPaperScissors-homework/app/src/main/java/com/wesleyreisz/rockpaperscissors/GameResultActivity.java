@@ -2,11 +2,8 @@ package com.wesleyreisz.rockpaperscissors;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.Image;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,11 +11,10 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 public class GameResultActivity extends AppCompatActivity {
 
     private static final String TAG = "Result Page";
+    private static final int TEXT_SIZE = 28;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,24 +29,28 @@ public class GameResultActivity extends AppCompatActivity {
             }
         });
 
-
-        //get the player selected choice
         Intent intent = getIntent();
-
         Integer playerSelectedChoice = (Integer)intent.getIntExtra(MainActivity.PLAYER_CHOICE,1);
-        ImageView player = (ImageView) findViewById(R.id.btnPlayer);
-        player.setImageResource(GameUtils.convertButtonToImage(playerSelectedChoice));
-
-        //get the a random computer choice
         Integer computerSelectedChoice = GameUtils.getComputerChoice();
-        ImageView computer = (ImageView) findViewById(R.id.btnComputer);
-        computer.setImageResource(GameUtils.convertButtonToImage(computerSelectedChoice));
+        GameResult result = GameUtils.evaluateWinner(playerSelectedChoice, computerSelectedChoice);
 
-        //evaluate winner
-        TextView result = (TextView)findViewById(R.id.txtResult);
-        result.setText(GameUtils.evaluateWinner(playerSelectedChoice, computerSelectedChoice));
-        result.setTextSize(28);
-        result.setTextColor(GameUtils.defineTextColor(result.getText().toString()));
+        ImageView winner = (ImageView) findViewById(R.id.btnWinner);
+        winner.setImageResource(GameUtils.convertButtonToImage(result.getWinner()));
+
+        TextView resultText = (TextView)findViewById(R.id.txtResult);
+        resultText.setText(result.getTextResult());
+        resultText.setTextSize(TEXT_SIZE - 8);
+        resultText.setTextColor(GameUtils.defineTextColor(result.getStatus()));
+
+        TextView messageText = (TextView)findViewById(R.id.txtMessage);
+        messageText.setText(result.getStatus());
+        messageText.setTextSize(TEXT_SIZE);
+        messageText.setTextColor(Color.WHITE);
+        messageText.setBackgroundColor(GameUtils.defineTextColor(result.getStatus()));
+
+        ImageView loser = (ImageView) findViewById(R.id.btnLoser);
+        loser.setImageResource(GameUtils.convertButtonToImage(result.getLoser()));
+
     }
 
     @Override
