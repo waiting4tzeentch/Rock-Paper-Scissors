@@ -5,4 +5,8 @@
         android:title="@string/action_help"
         android:orderInCategory="100"
         app:showAsAction="collapseActionView" />
+    <item android:id="@+id/action_help_dialog"
+        android:title="@string/action_help_dialog"
+        android:orderInCategory="100"
+        app:showAsAction="collapseActionView" />
 </menu>

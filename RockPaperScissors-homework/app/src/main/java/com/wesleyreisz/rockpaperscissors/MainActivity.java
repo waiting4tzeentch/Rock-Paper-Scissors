@@ -1,5 +1,6 @@
 package com.wesleyreisz.rockpaperscissors;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -57,6 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, HelpActivity.class);
             startActivity(intent);
             return true;
+        }else if (id == R.id.action_help_dialog){
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            ImageView img = (ImageView) new ImageView(this); // <--- img is not visible through dialog..
+            img.setImageResource(R.drawable.rules);
+            alert.setView(img);
+            alert.show();
         }
 
         return super.onOptionsItemSelected(item);
