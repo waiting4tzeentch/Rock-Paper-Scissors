@@ -1,13 +1,13 @@
 package com.wesleyreisz.rockpaperscissors.GameTypes;
 
-import com.wesleyreisz.rockpaperscissors.GameResult;
-import com.wesleyreisz.rockpaperscissors.GameUtils;
+import com.wesleyreisz.rockpaperscissors.Game.GameResult;
+import com.wesleyreisz.rockpaperscissors.Game.GameUtils;
 import com.wesleyreisz.rockpaperscissors.R;
 
 /**
  * Created by wesleyreisz on 9/27/15.
  */
-public class LizardGameType implements GameType {
+public class LizardGameTypeImpl implements GameType {
     @Override
     public GameResult eval(Integer opponentChoice) {
         GameResult result = new GameResult();

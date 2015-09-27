@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.wesleyreisz.rockpaperscissors.Game.GameResult;
+import com.wesleyreisz.rockpaperscissors.Game.GameUtils;
+
 public class GameResultActivity extends AppCompatActivity {
 
     private static final String TAG = "Result Page";

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final String TAG = "RockGameType, PaperGameType, ScissorsGameType";
+    private static final String TAG = "Rock Paper Scissors Lizard Spock";
     public static final String PLAYER_CHOICE = "com.wesleyreisz.rock_paper_scissors.player_choice";
 
     @Override

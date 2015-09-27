@@ -1,4 +1,4 @@
-package com.wesleyreisz.rockpaperscissors;
+package com.wesleyreisz.rockpaperscissors.Game;
 
 /**
  * Created by wesleyreisz on 9/27/15.

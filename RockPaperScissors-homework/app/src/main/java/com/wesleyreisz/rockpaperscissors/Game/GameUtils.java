@@ -1,13 +1,14 @@
-package com.wesleyreisz.rockpaperscissors;
+package com.wesleyreisz.rockpaperscissors.Game;
 
 import android.graphics.Color;
 
 import com.wesleyreisz.rockpaperscissors.GameTypes.GameType;
-import com.wesleyreisz.rockpaperscissors.GameTypes.LizardGameType;
-import com.wesleyreisz.rockpaperscissors.GameTypes.PaperGameType;
-import com.wesleyreisz.rockpaperscissors.GameTypes.RockGameType;
-import com.wesleyreisz.rockpaperscissors.GameTypes.ScissorsGameType;
-import com.wesleyreisz.rockpaperscissors.GameTypes.SpockGameType;
+import com.wesleyreisz.rockpaperscissors.GameTypes.LizardGameTypeImpl;
+import com.wesleyreisz.rockpaperscissors.GameTypes.PaperGameTypeImpl;
+import com.wesleyreisz.rockpaperscissors.GameTypes.RockGameTypeImpl;
+import com.wesleyreisz.rockpaperscissors.GameTypes.ScissorsGameTypeImpl;
+import com.wesleyreisz.rockpaperscissors.GameTypes.SpockGameTypeImpl;
+import com.wesleyreisz.rockpaperscissors.R;
 
 import java.util.Random;
 
@@ -63,15 +64,15 @@ public class GameUtils {
         GameType gameType;
 
         if (playerSelectedChoice==R.id.btnRock){
-            gameType = new RockGameType();
+            gameType = new RockGameTypeImpl();
         }else if  (playerSelectedChoice==R.id.btnPaper){
-            gameType = new PaperGameType();
+            gameType = new PaperGameTypeImpl();
         }else if  (playerSelectedChoice==R.id.btnSpock){
-            gameType = new SpockGameType();
+            gameType = new SpockGameTypeImpl();
         }else if  (playerSelectedChoice==R.id.btnLizard){
-            gameType = new LizardGameType();
+            gameType = new LizardGameTypeImpl();
         }else{
-            gameType = new ScissorsGameType();
+            gameType = new ScissorsGameTypeImpl();
         }
         return gameType.eval(computerSelectedChoice);
     }
