@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_help) {
+            //create a new explict activity here.
             return true;
         }
 
