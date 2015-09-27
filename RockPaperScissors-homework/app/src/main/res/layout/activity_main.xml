@@ -15,24 +15,42 @@
         android:src="@drawable/paper"
         />
 
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnRock"
         android:backgroundTint="@android:color/transparent"
-        android:layout_centerHorizontal="true"
         android:src="@drawable/rock"
-        android:layout_above="@id/btnPaper"
-        />
+        android:layout_above="@+id/btnPaper"
+        android:layout_alignParentStart="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnScissors"
         android:backgroundTint="@android:color/transparent"
-        android:layout_centerHorizontal="true"
         android:src="@drawable/scissors"
-        android:layout_below="@id/btnPaper"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLizard"
+        android:src="@drawable/lizard"
+        android:layout_alignTop="@+id/btnRock"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/btnPaper" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/spock"
+        android:layout_alignBottom="@+id/btnScissors"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/btnScissors"
+        android:layout_alignStart="@+id/btnLizard" />
 
 </RelativeLayout>
