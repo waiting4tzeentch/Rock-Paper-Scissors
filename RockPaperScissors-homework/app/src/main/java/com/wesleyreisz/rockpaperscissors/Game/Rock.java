@@ -11,10 +11,13 @@ public class Rock implements GameType {
     public String eval(Integer opponentChoice) {
         if (opponentChoice== R.id.btnScissors){
             return GameUtils.BEATS;
-        }else if (opponentChoice==R.id.btnPaper){
+        } else if (opponentChoice==R.id.btnPaper){
             return GameUtils.LOSES_TO;
-        }
-        else{
+        } else if (opponentChoice==R.id.btnLizard){
+            return GameUtils.BEATS;
+        } else if (opponentChoice==R.id.btnSpock){
+            return GameUtils.LOSES_TO;
+        } else{
             return GameUtils.TIES;
         }
     }
