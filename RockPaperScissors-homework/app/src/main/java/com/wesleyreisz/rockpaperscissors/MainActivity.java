@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -65,6 +67,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             img.setImageResource(R.drawable.rules);
             alert.setView(img);
             alert.show();
+        }else if (id == R.id.action_stats){
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            TextView statsView = new TextView(this);
+
+            RockPaperScissorsApplication app = ((RockPaperScissorsApplication)this.getApplication());
+            statsView.setText("You have won: " + app.getWins() + " of " + app.getTotalGames() + " games.");
+            statsView.setPadding(20, 20, 20, 50);
+            statsView.setGravity(Gravity.CENTER);
+            alert.setTitle("Game Statistics");
+            alert.setView(statsView);
+            alert.show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -79,5 +92,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent intent = new Intent(this, GameResultActivity.class);
         intent.putExtra(PLAYER_CHOICE, v.getId());
         startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        RockPaperScissorsApplication app = ((RockPaperScissorsApplication)this.getApplication());
+        String msg = "Welcome!";
+        if(app.getTotalGames()>0) {
+           msg = "You've won: " + app.getWins() + " of " + app.getTotalGames();
+        }
+        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

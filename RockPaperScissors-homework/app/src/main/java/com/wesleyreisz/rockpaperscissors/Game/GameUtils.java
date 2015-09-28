@@ -35,13 +35,17 @@ public class GameUtils {
         Integer selectedValue;
         Random r = new Random(System.currentTimeMillis());
 
-        selectedValue = r.nextInt(3);//
+        selectedValue = r.nextInt(5);//
         if(selectedValue==0){
             return R.id.btnRock;
         }else if (selectedValue==1){
             return R.id.btnPaper;
-        }else{
+        }else if (selectedValue==2){
             return R.id.btnScissors;
+        }else if (selectedValue==3){
+            return R.id.btnLizard;
+        }else{
+            return R.id.btnSpock;
         }
     }
 

@@ -9,4 +9,8 @@
         android:title="@string/action_help_dialog"
         android:orderInCategory="100"
         app:showAsAction="collapseActionView" />
+    <item android:id="@+id/action_stats"
+        android:title="@string/action_game_stats"
+        android:orderInCategory="100"
+        app:showAsAction="collapseActionView" />
 </menu>

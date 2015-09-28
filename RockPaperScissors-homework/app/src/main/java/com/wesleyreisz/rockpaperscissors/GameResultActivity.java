@@ -1,5 +1,6 @@
 package com.wesleyreisz.rockpaperscissors;
 
+import android.app.Application;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -54,5 +55,18 @@ public class GameResultActivity extends AppCompatActivity {
         ImageView loser = (ImageView) findViewById(R.id.btnLoser);
         loser.setImageResource(GameUtils.convertButtonToImage(result.getLoser()));
 
+        RockPaperScissorsApplication app = ((RockPaperScissorsApplication)this.getApplication());
+        runStats(result, app);
+    }
+
+    private void runStats(GameResult result, RockPaperScissorsApplication app) {
+        //statistics
+        if(GameUtils.WINS==result.getStatus()){
+            app.addWin();
+        }else if(GameUtils.LOSES==result.getStatus()){
+            app.addLose();;
+        }else{
+            app.addTies();
+        }
     }
 }
